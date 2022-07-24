@@ -16,6 +16,7 @@ class ArticleScraper:
     """
     Class which is instantiated with details of a news feed HTML page
     layout and supports scraping article details
+    ** not currently working due to website html changes **
     """
     # required
     url: str = None
@@ -89,15 +90,27 @@ class ArticleScraper:
 
 if __name__ == "__main__":
 
+    # article_scraper = ArticleScraper(
+    #     url='https://www.optimistdaily.com/todays-solutions/',
+    #     all_article_tag='div',
+    #     all_article_class='single-post-content-sidebar-wrap',
+    #     article_tag='article',
+    #     date_tag='time',
+    #     date_class='entry-time',
+    #     content_tag='div',
+    #     content_class='postContent'
+    # )
+
     article_scraper = ArticleScraper(
-        url='https://www.optimistdaily.com/todays-solutions/',
-        all_article_tag='div',
-        all_article_class='single-post-content-sidebar-wrap',
-        article_tag='article',
-        date_tag='time',
-        date_class='entry-time',
-        content_tag='div',
-        content_class='postContent'
+        url='https://www.bbc.co.uk/news/topics/cx2pk70323et/uplifting-stories',
+        all_article_tag= 'div',
+        all_article_class= 'gel-layout gel-layout--center',
+        article_tag= 'article',
+        date_tag= 'div',
+        date_class= 'date date--v2',
+        content_tag= 'div',
+        content_class= 'story-body__inner'
     )
+
     article_scraper.run()
     pass
